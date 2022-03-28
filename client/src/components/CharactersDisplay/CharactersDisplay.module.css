@@ -1,0 +1,13 @@
+.title { 
+    text-align: center;
+    text-shadow: 4px 4px 2px #ff8236;
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
+    color: #56417a;
+}
+
+.ul{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    list-style-type: none;
+}

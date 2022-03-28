@@ -1,0 +1,43 @@
+
+.card{
+    width: 220px;
+    height: 260px;
+    padding: 5px;
+    background-color: #ff8236;
+    border: 3px solid #56417a;
+    border-radius: 15px;
+    margin: 10px
+}
+
+.img{
+    margin: 10px;
+    float: left;
+    width: 200px; 
+    height: 200px;
+    border-radius: 7px;
+
+}
+
+
+.id{
+    position: relative;
+    top: -22px;
+    text-align: center;
+}
+
+.name {
+    font-family: 'Anton', sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    color: #56417a;
+    word-break: break-all;
+}
+
+.ul {
+    font-family: 'Antonio', sans-serif;
+    font-size: 16px;
+    font-weight: bolder;
+    list-style-type: none;
+    position: relative;
+    bottom: 12px;
+}
