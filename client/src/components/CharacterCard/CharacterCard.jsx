@@ -10,6 +10,7 @@ export default function Card({name, image}){
                 <div >
                     <img src={image} className={style.img}/>
                 </div>
+                
                 <h3 className={style.name}>{name}</h3>
             </div>    
         </div>

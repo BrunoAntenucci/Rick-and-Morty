@@ -32,10 +32,11 @@ export function getCharacters() {
 export function getDetail(id){
     return async function(dispatch){
         try{
-            var json = await axios.get('https://rickandmortyapi.com/api/character/' + id);
+            var json = await axios.get(`https://rickandmortyapi.com/api/character/${id}`);
+            console.log(json.data.results)
             return dispatch({
                 type: 'GET_DETAIL',
-                payload: json.data
+                payload: json.data.results
             })
         }catch(error){
             console.log(error);
