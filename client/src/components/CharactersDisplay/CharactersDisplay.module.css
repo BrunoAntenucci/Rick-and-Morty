@@ -11,3 +11,8 @@
     grid-template-columns: repeat(5, 1fr);
     list-style-type: none;
 }
+
+.loading{
+    margin-top: 500px;
+    font-size: 50px;
+}

@@ -6,7 +6,8 @@
     background-color: #ff8236;
     border: 3px solid #56417a;
     border-radius: 15px;
-    margin: 10px
+    margin: 10px;
+    cursor: pointer;
 }
 
 .img{

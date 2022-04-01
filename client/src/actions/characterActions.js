@@ -5,6 +5,7 @@ export const GET_DETAIL = 'GET_DETAIL'
 
 var apiData = []
 
+
 const getApiInfo = async (url) => {
     if(apiData.length < 400){ 
         const apiUrl = await axios.get(url);
@@ -12,7 +13,6 @@ const getApiInfo = async (url) => {
         
         return apiData.concat(await getApiInfo(apiUrl.data.info.next)) 
     }else{
-        console.log(apiData)
         return apiData;
     }
 }
@@ -29,17 +29,32 @@ export function getCharacters() {
     }
 }
 
-export function getDetail(id){
-    return async function(dispatch){
-        try{
-            var json = await axios.get(`https://rickandmortyapi.com/api/character/${id}`);
-            console.log(json.data.results)
-            return dispatch({
-                type: 'GET_DETAIL',
-                payload: json.data.results
+
+export function getDetail(id) {
+    return function(dispatch) {
+        return  axios.get('https://rickandmortyapi.com/api/character/' + id)
+            .then((response) => {
+                console.log(response)
+                dispatch({
+                    type: GET_DETAIL,
+                    payload: response
+                })
             })
-        }catch(error){
-            console.log(error);
-        }                
     }
 }
+
+
+// export function getDetail(id){
+//     return async function(dispatch){
+//         try{
+//             var json = await axios.get(`https://rickandmortyapi.com/api/character/${id}` );
+//             console.log(json)
+//             return dispatch({
+//                 type: 'GET_DETAIL',
+//                 payload: json.data.results
+//             })
+//         }catch(error){
+//             console.log(error);
+//         }                
+//     }
+// }

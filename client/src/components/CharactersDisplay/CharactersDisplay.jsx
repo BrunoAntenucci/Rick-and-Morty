@@ -8,9 +8,13 @@ import style from '../CharactersDisplay/CharactersDisplay.module.css'
 
 
 function CharacterDisplay({characters, getCharacters}) {
+
+    const [loading, setLoading] = useState(false)
     
     function getCharactersFunction(){
             getCharacters();
+            setLoading(true)
+
     }
     useEffect(() => {
         getCharactersFunction()
@@ -18,7 +22,7 @@ function CharacterDisplay({characters, getCharacters}) {
     const allCharacters = useSelector((state) => state.characters);
 
     const [ currentPage, setCurrentPage ] = useState(1);
-    const [ cardsPerPage, _setCardsPerPage ] = useState(20);
+    const [ cardsPerPage ] = useState(20);
 
     const indexOfLastCard = currentPage * cardsPerPage;
     const indexOfFirstCard = indexOfLastCard - cardsPerPage;
@@ -29,10 +33,9 @@ function CharacterDisplay({characters, getCharacters}) {
     }
 
 
-
     return(<div>
-            <h2 className={style.title}>Rick and Morty Characters Roll</h2>
-            <div>            
+            <h2 className={style.title}>Rick and Morty Characters Roll</h2> 
+            { loading ? <div>    
                 <Paginado
                 cardsPerPage={cardsPerPage}
                 allCharacters={allCharacters.length}
@@ -55,9 +58,8 @@ function CharacterDisplay({characters, getCharacters}) {
                 paginado={paginado}
                 />
                 
-            </div>
+            </div> : <h1 className={style.loading}>Loading...</h1>}
         </div>
- 
     )}
 
 const mapStateToProps = state => {

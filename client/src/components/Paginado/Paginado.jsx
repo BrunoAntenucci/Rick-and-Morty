@@ -13,8 +13,8 @@ export default function Paginado({cardsPerPage, allCharacters, paginado}){
             <ul className={style.ul}>
                 { pageNumbers && 
                     pageNumbers.map(number => (
-                    <li key={number} className={style.li}>
-                        <a onClick={() => paginado(number)}>{number}</a>
+                    <li onClick={() => paginado(number)} key={number} className={style.li}>
+                        <a>{number}</a>
                     </li>
                     ))
                 }
